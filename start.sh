@@ -4,5 +4,6 @@ pnpm nx run @docmost/editor-ext:build
 
 pnpm build
 
-docker compose build
-docker compose restart
+docker compose down
+
+docker compose up --build -d
