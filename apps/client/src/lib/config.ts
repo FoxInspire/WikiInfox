@@ -7,7 +7,7 @@ declare global {
 }
 
 export function getAppName(): string{
-    return 'Docmost';
+    return 'InfoxHub';
 }
 
 export function getAppUrl(): string {

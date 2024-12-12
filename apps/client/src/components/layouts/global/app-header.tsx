@@ -1,6 +1,6 @@
 import {Group, Text, Tooltip} from "@mantine/core";
 import classes from "./app-header.module.css";
-import React from "react";
+import {getAppName} from "@/lib/config.ts";
 import TopMenu from "@/components/layouts/global/top-menu.tsx";
 import {Link} from "react-router-dom";
 import APP_ROUTE from "@/lib/app-route.ts";
@@ -65,7 +65,7 @@ export function AppHeader() {
             component={Link}
             to="/home"
           >
-            Docmost
+            {getAppName()}
           </Text>
 
           <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">

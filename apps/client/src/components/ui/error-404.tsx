@@ -7,7 +7,7 @@ export function Error404() {
   return (
     <>
       <Helmet>
-        <title>404 page not found - Docmost</title>
+        <title>404 page not found - InfoxHub</title>
       </Helmet>
       <Container className={classes.root}>
         <Title className={classes.title}>404 Page Not Found</Title>

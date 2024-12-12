@@ -1,0 +1,35 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-main:
+    runs-on: [self-hosted, infox-wiki]
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Pull Latest Code
+        run: |
+          git fetch --all
+          git reset --hard origin/main
+          git pull
+        
+      - name: Set .env
+        run: |
+          echo "${{ secrets.ENV_PROD_INFOX_WIKI }}" > .env
+      
+      - name: Install yarn
+        run: sudo npm install -g pnpm
+
+      - name: Install Docker
+        run: sudo apt-get update
+        run: sudo apt-get install docker.io
+      
+      - name: Run start.sh
+        run: |
+          chmod +x start.sh
+          ./start.sh
