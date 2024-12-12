@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "${{ secrets.ENV_PROD_INFOX_WIKI }}" > .env
       
-      - name: Install yarn
+      - name: Install pnpm
         run: sudo npm install -g pnpm
 
       - name: Install Nx
